@@ -66,7 +66,7 @@ visualizer.encode('hello world')
 
 ![generated graph](https://raw.githubusercontent.com/SauravP97/hf-tokenizer-visualizer/refs/heads/main/media/generated_graph.png)
 
-## Building the Library and Uploading o PyPi (Owner Only)
+#### Building the Library and Uploading to PyPi (Owner Only)
 
 ```
 python -m build
