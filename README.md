@@ -18,22 +18,49 @@ During the tokenization process the input content is compressed into the encoded
 
 This library helps in visualizing how the merging process looks like for a given string to be encoded. It generates a **graph** where the nodes are tokens / characters and if a pair of characters are merged, the nodes are connected via directed edges.
 
-### Using the Library
+### Installing the Library
 
 ```python
-from hf_tokenizer import HfBPETokenizerVisualizer
+pip install hf-tokenizer-visualizer
+```
+### Using the Library
+
+1. Save your visualization in a `PNG` or a `PDF` file.
+
+```python
+from hf_tokenizer_visualizer import HfBPETokenizerVisualizer
 
 visualizer = HfBPETokenizerVisualizer(
     pretrained_model_name="gpt2",
     save_visualization=True,
     file_type="png",
-    file_name="bpe_tokenization_visualization",
-    enable_debug=True,
+    file_name="bpe_tokenization_visualization_2",
+    enable_debug=False,
 )
 
-encoded_ids = visualizer.encode("hello world")
-print(encoded_ids)
+visualizer.visualize_encoding('Hey, how are you doing today?')
 ```
+
+> Note: The file is saved in your current working directory.
+> Note: You can choose between `png` and `pdf` file types.
+
+2. Get the raw encoding
+
+```python
+from hf_tokenizer_visualizer import HfBPETokenizerVisualizer
+
+visualizer = HfBPETokenizerVisualizer(
+    pretrained_model_name="gpt2",
+    save_visualization=True,
+    file_type="png",
+    file_name="bpe_tokenization_visualization_2",
+    enable_debug=False,
+)
+
+visualizer.encode('Hey, how are you doing today?')
+```
+
+> Output: [10814, 11, 703, 389, 345, 1804, 1909, 30]
 
 ### Output Graph generated
 
