@@ -38,7 +38,7 @@ visualizer = HfBPETokenizerVisualizer(
     enable_debug=False,
 )
 
-visualizer.visualize_encoding('Hey, how are you doing today?')
+visualizer.visualize_encoding('hello world')
 ```
 
 > Note: The file is saved in your current working directory.
@@ -57,10 +57,10 @@ visualizer = HfBPETokenizerVisualizer(
     enable_debug=False,
 )
 
-visualizer.encode('Hey, how are you doing today?')
+visualizer.encode('hello world')
 ```
 
-> Output: [10814, 11, 703, 389, 345, 1804, 1909, 30]
+> Output: [31373, 995]
 
 ### Output Graph generated
 
