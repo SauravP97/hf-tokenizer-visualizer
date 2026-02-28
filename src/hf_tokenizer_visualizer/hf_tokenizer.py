@@ -51,6 +51,11 @@ class HfBPETokenizerVisualizer:
 
     def visualize_encoding(self, text: str):
         """Visualizes the BPE tokenization process for a given input text."""
+        if len(text) == 0:
+            raise ValueError("Input text cannot be empty for visualization.")
+        if len(text) > 50:
+            raise ValueError("Input text is too long for visualization (max 50 characters).")
+
         dot = graphviz.Digraph(
             comment="Tokenizer Visualizer", engine=self.GRAPHVIZ_RENDERING_ENGINE
         )

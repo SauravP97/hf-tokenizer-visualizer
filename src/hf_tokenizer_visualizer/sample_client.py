@@ -8,5 +8,4 @@ visualizer = HfBPETokenizerVisualizer(
     enable_debug=True,
 )
 
-encoded_ids = visualizer.encode("hello world")
-print(encoded_ids)
+visualizer.visualize_encoding("The library can help you visualize how the")
