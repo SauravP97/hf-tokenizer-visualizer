@@ -72,3 +72,9 @@ visualizer.encode('hello world')
 python -m build
 twine upload --repository pypi dist/*
 ```
+
+### Pre-requisites
+
+Following are the libraries which are mandatory for running this:
+  - [graphviz](https://pypi.org/project/graphviz/)
+  - [transformers](https://pypi.org/project/transformers/)
