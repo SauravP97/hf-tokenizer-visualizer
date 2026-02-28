@@ -13,6 +13,7 @@ class HfBPETokenizerVisualizer:
         "The tokenizer's model is not a Byte-Pair Encoding model."
     )
     GRAPHVIZ_RENDERING_ENGINE = "neato"
+    DOT_RENDERING_ENGINE = "dot"
 
     def __init__(
         self,
@@ -45,6 +46,13 @@ class HfBPETokenizerVisualizer:
         self.file_name = file_name
         self.enable_debug = enable_debug
 
+    def _get_rendering_engine(self, text_length) -> str:
+        """Determines the appropriate Graphviz rendering engine based on the text size."""
+        if text_length <= 50:
+            return self.GRAPHVIZ_RENDERING_ENGINE
+        else:
+            return self.DOT_RENDERING_ENGINE
+
     def encode(self, text: str) -> list[int]:
         """Encodes the input text using the BPE tokenizer and returns a list of token IDs."""
         return self.tokenizer.encode(text)
@@ -53,17 +61,27 @@ class HfBPETokenizerVisualizer:
         """Visualizes the BPE tokenization process for a given input text."""
         if len(text) == 0:
             raise ValueError("Input text cannot be empty for visualization.")
-        if len(text) > 50:
-            raise ValueError("Input text is too long for visualization (max 50 characters).")
+        if len(text) > 200:
+            raise ValueError(
+                "Input text is too long for visualization (max 200 characters). Provided text length: {}".format(
+                    len(text)
+                )
+            )
 
         dot = graphviz.Digraph(
-            comment="Tokenizer Visualizer", engine=self.GRAPHVIZ_RENDERING_ENGINE
+            comment="Tokenizer Visualizer", engine=self._get_rendering_engine(len(text))
         )
         existing_nodes = set()
 
         text_chunks: list[str] = []
         for char in text:
-            dot.node(char)
+            dot.node(
+                char,
+                style="filled",
+                fillcolor="#FFECA3",
+                color="black",
+                penwidth="1",
+            )
             text_chunks.append(char)
             if self.enable_debug:
                 print(f"Adding node for character '{char}' with index {ord(char)}")
@@ -104,7 +122,13 @@ class HfBPETokenizerVisualizer:
                             f"Merging '{pair[0]}' and '{pair[1]}' to form '{merged_char}'"
                         )
                     existing_nodes.add(merged_char)
-                dot.node(merged_char)
+                dot.node(
+                    merged_char,
+                    style="filled",
+                    fillcolor="#F5C598",
+                    color="black",
+                    penwidth="1",
+                )
                 dot.edge(pair[0], merged_char, label="")
                 dot.edge(pair[1], merged_char, label="")
                 i += 2

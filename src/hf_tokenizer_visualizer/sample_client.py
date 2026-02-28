@@ -5,7 +5,7 @@ visualizer = HfBPETokenizerVisualizer(
     save_visualization=True,
     file_type="png",
     file_name="bpe_tokenization_visualization",
-    enable_debug=True,
+    enable_debug=False,
 )
 
-visualizer.visualize_encoding("The library can help you visualize how the")
+visualizer.visualize_encoding("The library can help you")
