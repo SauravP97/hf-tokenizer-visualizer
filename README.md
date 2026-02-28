@@ -1,4 +1,4 @@
-# Hugging Face Byte-Pair Encoding tokenizer visualizer library
+# HuggingFace Byte-Pair Encoding tokenizer visualizer library
 
 The library can help you visualize how the encoding process happens in the **Byte-Pair Encoding** tokenizer algorithm when you pass on your text content for tokenization.
 
