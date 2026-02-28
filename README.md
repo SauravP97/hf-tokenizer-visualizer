@@ -4,6 +4,8 @@ The library can help you visualize how the encoding process happens in the **Byt
 
 Byte-Pair Encoding (BPE) was initially developed as an algorithm to compress texts, and then used by OpenAI for tokenization when pre-training the GPT model. It’s used by a lot of Transformer models, including GPT, GPT-2, RoBERTa, BART, and DeBERTa.
 
+![visualizer-front](./media/front-1.png)
+
 ## Byte-Pair Encoding tokenization
 
 BPE training starts by computing the unique set of words used in the corpus (after the normalization and pre-tokenization steps are completed), then building the vocabulary by taking all the symbols used to write those words.
