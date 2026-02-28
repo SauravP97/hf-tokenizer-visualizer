@@ -10,7 +10,7 @@ BPE training starts by computing the unique set of words used in the corpus (aft
 
 More about the algorithm [here](https://huggingface.co/learn/llm-course/en/chapter6/5)
 
-![tiktoken-img](./media/img1.png)
+![tiktoken-img](https://raw.githubusercontent.com/SauravP97/hf-tokenizer-visualizer/refs/heads/main/media/img1.png)
 
 ## Visualizing the Tokenization process
 
@@ -37,4 +37,4 @@ print(encoded_ids)
 
 ### Output Graph generated
 
-![generated graph](./media/generated_graph.png)
+![generated graph](https://raw.githubusercontent.com/SauravP97/hf-tokenizer-visualizer/refs/heads/main/media/generated_graph.png)
