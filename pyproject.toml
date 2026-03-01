@@ -3,7 +3,7 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 [project]
 name = "hf-tokenizer-visualizer"
-version = "0.0.6"
+version = "0.0.7"
 authors = [
   { name="Saurav Prateek", email="srvptk97@gmail.com" },
 ]
